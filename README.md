@@ -1,27 +1,11 @@
-# AngularTest
+#Manual Angular bootstrap
+Looks like manual bootstrapping an Angular app is not a piece of cake.
+- You should call `Router::initialNavigation` manually
+- You should run it in `NgZone::run`. Or else `ngOnInit` will not be called on components after navigatin via `routerLink`.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.7.
+I wonder if there is any more magic?
 
-## Development server
+#Why?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I've found lack of Router configuration guide in [Upgrading from AngularJS guide](https://angular.io/guide/upgrade). They describe it as last step of migration - you adding routes and removing angularjs bootstrap.
+That is not the way I can migrate my app. I need router right after that hybrid app started, so I can develop my Angular modules.

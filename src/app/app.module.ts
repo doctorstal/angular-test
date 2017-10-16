@@ -1,3 +1,6 @@
+import { SampleModule } from './sample/sample.module';
+import { Router, RouterModule } from '@angular/router';
+import { UpgradeModule } from '@angular/upgrade/static';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,9 +11,16 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    UpgradeModule,
+    SampleModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  ngDoBootstrap(){
+    // Empty bootstrap for hybrid app is required
+  }
+ }

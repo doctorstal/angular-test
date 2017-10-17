@@ -1,3 +1,4 @@
+import { MessagingModule } from './messaging/messaging.module';
 import { SampleModule } from './sample/sample.module';
 import { Router, RouterModule } from '@angular/router';
 import { UpgradeModule } from '@angular/upgrade/static';
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     UpgradeModule,
     SampleModule,
+    MessagingModule,
     RouterModule.forRoot([])
   ],
   providers: [],

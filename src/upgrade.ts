@@ -1,11 +1,14 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 
-function upgradeService(ng1Name: string, ng2Name?: string): FactoryProvider {
+export function upgradeService(name: string, factory: Function): FactoryProvider {
     return {
-        provide: ng2Name || ng1Name,
-        useFactory: $injector => $injector.get(ng1Name),
+        provide: name,
+        useFactory: factory,
         deps: ['$injector']
     }
 }
 
-export const MessageService = upgradeService('MessageService');
+export function messageServiceFactory($injector) {
+    return $injector.get('MessageService');
+}
+export const MessageService = upgradeService('MessageService', messageServiceFactory);

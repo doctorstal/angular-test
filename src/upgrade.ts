@@ -11,4 +11,4 @@ export function upgradeService(name: string, factory: Function): FactoryProvider
 export function messageServiceFactory($injector) {
     return $injector.get('MessageService');
 }
-export const MessageService = upgradeService('MessageService', messageServiceFactory);
+export const MessageServiceProvider = upgradeService('MessageService', messageServiceFactory);

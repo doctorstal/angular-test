@@ -1,5 +1,5 @@
 import { MessagingComponent } from './messaging.component';
-import { MessageService } from './../../upgrade';
+import { MessageServiceProvider } from './../../upgrade';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -11,7 +11,7 @@ import { NgModule } from '@angular/core';
         ])
       ],
       providers: [
-          MessageService
+          MessageServiceProvider
       ],
       declarations: [
           MessagingComponent
